@@ -35,7 +35,7 @@ public class HpListFragment extends BaseFragment<HpListPresenter> implements HpL
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.hp_list_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_hp_list, container, false);
 
         RecyclerView hpRecyclerView = view.findViewById(R.id.hp_recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
