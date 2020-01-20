@@ -1,4 +1,4 @@
-package com.qyhxxx.one.hp.presenter;
+package com.qyhxxx.one.hp.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.qyhxxx.one.R;
-import com.qyhxxx.one.hp.bean.Hp;
+import com.qyhxxx.one.hp.bean.HpByMonthBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HpRecyclerViewAdapter extends RecyclerView.Adapter<HpRecyclerViewAdapter.ViewHolder> {
     private Context mContext;
-    private List<Hp> mHpList = new ArrayList<>();
+    private List<HpByMonthBean.Hp> mHpList = new ArrayList<>();
 
     public HpRecyclerViewAdapter(Context context) {
         mContext = context;
@@ -34,7 +34,7 @@ public class HpRecyclerViewAdapter extends RecyclerView.Adapter<HpRecyclerViewAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Hp hp = mHpList.get(position);
+        HpByMonthBean.Hp hp = mHpList.get(position);
         Glide.with(mContext).load(hp.getHp_img_url()).into(holder.hpImg);
         holder.hpContent.setText(hp.getHp_content());
         holder.hpAuthor.setText(hp.getHp_author());
@@ -58,7 +58,7 @@ public class HpRecyclerViewAdapter extends RecyclerView.Adapter<HpRecyclerViewAd
         }
     }
 
-    public void addList(List<Hp> list) {
+    public void addList(List<HpByMonthBean.Hp> list) {
         mHpList.addAll(list);
         notifyItemRangeInserted(mHpList.size(), list.size());
     }

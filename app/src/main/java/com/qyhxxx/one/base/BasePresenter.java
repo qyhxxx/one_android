@@ -11,7 +11,6 @@ public abstract class BasePresenter<V extends BaseView, M extends BaseModel> {
 
     public void onDestroy() {
         mView = null;
-        mModel.release();
         mModel = null;
     }
 

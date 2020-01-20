@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface HpApi {
-    @GET("hp/bymonth/{month}")
+    @GET("bymonth/{month}")
     Observable<HpByMonthBean> getHpByMonth(@Path("month") String month);
 }

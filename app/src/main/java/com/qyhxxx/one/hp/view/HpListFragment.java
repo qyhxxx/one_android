@@ -12,24 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.qyhxxx.one.R;
 import com.qyhxxx.one.base.BaseFragment;
-import com.qyhxxx.one.hp.bean.Hp;
-import com.qyhxxx.one.hp.contract.HpListContract;
+import com.qyhxxx.one.hp.bean.HpByMonthBean;
+import com.qyhxxx.one.hp.contract.HpContract;
 import com.qyhxxx.one.hp.presenter.HpListPresenter;
-import com.qyhxxx.one.hp.presenter.HpRecyclerViewAdapter;
 
 import java.util.List;
 
-public class HpListFragment extends BaseFragment<HpListPresenter> implements HpListContract.View {
+public class HpListFragment extends BaseFragment<HpListPresenter> implements HpContract.View {
     private HpRecyclerViewAdapter adapter;
 
     @Override
     protected HpListPresenter initPresenter() {
         return new HpListPresenter();
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Nullable
@@ -42,18 +36,13 @@ public class HpListFragment extends BaseFragment<HpListPresenter> implements HpL
         hpRecyclerView.setLayoutManager(layoutManager);
         adapter = new HpRecyclerViewAdapter(getActivity());
         hpRecyclerView.setAdapter(adapter);
-        mPresenter.loadData("2016-05");
+        mPresenter.loadHpByMonth("2016-05");
 
         return view;
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void setHpRecyclerView(final List<Hp> data) {
+    public void setHpRecyclerView(final List<HpByMonthBean.Hp> data) {
         adapter.addList(data);
     }
 }
